@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/dark-theme.css">
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +30,7 @@
   <body>
     <header class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Golden Owl Designs</a>
+        <a class="navbar-brand" href="/"><img src="images/goldenowllight.png" style="height: 80px" alt="golden owl" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar i1"></span>
           <span class="icon-bar i2"></span>
@@ -39,30 +39,27 @@
 
         <div class="collapse navbar-collapse" id="navbarDefault">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
+            <li class="nav-item {{ request()->is('/') ? 'active' : ''}}">
+              <a class="nav-link" href="/">HOME</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about-me.html">ABOUT ME</a>
+            <li class="nav-item {{ request()->is('about') ? 'active' : ''}}">
+              <a class="nav-link" href="about">ABOUT ME</a>
             </li>
+            <!--
             <li class="nav-item">
-              <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
+              <a class="nav-link" href="portfolio">PORTFOLIO</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">CONTACT</a>
+    -->
+            <li class="nav-item {{ request()->is('contact') ? 'active' : ''}}">
+              <a class="nav-link" href="contact">CONTACT</a>
             </li>
           </ul>
           
         </div>
       </nav>
 
-      <div id="hero-text">
-        <div class="container">
-          <h1>Hello.. I Am Max Gehring</h1>
-          <h2>I Create Artistic Custom Wooden Pieces</h2>
-          <h5>AWARD WINNING WOOD TURNER  / WOOD WORKER / ARTIST</h5>
-        </div>
-      </div>
+      @yield('hero')
+      
     </header>
 
     <!-- Corner Borders -->
@@ -77,188 +74,28 @@
       </div>
     </section>
 
-    <section class="gallery">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Mixit Up Controls -->
-          <div class="controls">
-            <button type="button" class="control" data-filter="all">All</button>
-            <button type="button" class="control" data-filter=".landscape">Landscape</button>
-            <button type="button" class="control" data-filter=".portrait">Portrait</button>
-            <button type="button" class="control" data-filter=".product">Product</button>
-          </div>
-        </div>
+    @yield('homepage')
+    @yield('about')
+    @yield('contact')
+    @yield('portfolio')
+    @yield('product')
+    @yield('product2')
+    @yield('product3')
+    @yield('product4')
+    @yield('product5')
+    @yield('product6')
+    @yield('product7')
+    @yield('product8')
+    @yield('product9')
+    @yield('product10')
+    @yield('product11')
+    @yield('product12')
 
-        <div class="row">
-          <div class="fw mix-container home-gallery">
-              <div class="mix portrait">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wooden Mortars</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/freshwoodenmortar.jpg" alt="Wooden mortar"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait product">
-               <a href="project-slider.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Custom Bowls</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodbowl.jpg" alt="wood bowl"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape product">
-               <a href="project-video.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wood Kitchen</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodkitchen.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Rustic Kitchen Ware</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/rusticwoodenbowl.jpg" alt="rustic bowl"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape product">
-               <a href="project-slider.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Workbench</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/workbench.jpg" alt="workbench"/>
-                  </div>
-               </a>
-            </div>
-
-            <div class="mix landscape portrait">
-               <a href="project-video.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wood Working</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/workingwood.jpg" alt="working wood"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix portrait product">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Handsome Carpenter</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/handsomecarpenter.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait product">
-               <a href="project-slider.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Carpenter</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/carpenterworking.jpg" alt="carpenter"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait">
-               <a href="project-video.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wooden Interiors</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/interior.jpg" alt="wooden interior"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait product">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Chess Sets</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodenchess.jpg" alt="Wooden chess set"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape">
-               <a href="project-slider.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wooden Harts</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodenheart.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape portrait">
-               <a href="project-video.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wooden Dishes</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodendish.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix portrait product">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Wooden Utensils</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodenutensils.jpg" alt="Wooden Utensils"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape product portrait">
-               <a href="project-slider.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Bowls</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodenbowl2.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix landscape">
-               <a href="project-video.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Sauce Dish</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/blueberries.jpg" alt="Sauce Dish"/>
-                  </div>
-               </a>
-            </div>
-            <div class="mix portrait">
-               <a href="project-1.html" class="thumb-a">
-                  <div class="item-hover">
-                    <div class="hover-text"><h3>Custom Dishes</h3></div>
-                  </div>
-                  <div class="item-img">
-                    <img src="images/woodenplate.jpg" alt=""/>
-                  </div>
-               </a>
-            </div>
-          </div>
-            
-        </div>
-      </div>
-      
-    </section>
-
+    @yield('learn')
+    @yield('learn2')
+    @yield('learn3')
+    @yield('learn4')
+    
     <footer>
       <div class="container-fluid">
             <div class="footer-info">
@@ -285,6 +122,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <!-- 
+
+    -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHgTY6We404HmD0avnzKNe73v0oQfQMI4&callback=initMap"
+    async defer></script>
+
+    <script>
+      function initMap() {
+        var uluru = {lat: 47.037872, lng: -122.900696};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+
+
+    <!-- 
+
+    -->
+
     <script>
         var containerEl = document.querySelector('.mix-container');
 

@@ -6,9 +6,18 @@
 	  $(this).find('.dropdown-menu').stop(true, true).fadeOut(500);
 	});
 
+	
 
+	/* $(".nav-item").on("click", function(){
+		$(".navbar-nav").find(".active").removeClass("active");
+		$(this).addClass("active");
+	 });
+ */
 	// hamburger menu icons
 	$('.navbar-toggler').on('click', function(){
 	   $(this).toggleClass('active');
 	});
 })(jQuery);
+
+
+
